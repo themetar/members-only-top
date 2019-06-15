@@ -1,0 +1,16 @@
+<h1>Posts#index</h1>
+<% @posts.each do |post| %>
+  <div class="">
+    <p>
+      <%=
+        unless @current_user.nil?
+           User.find_by(id: post.author_id).name
+        else
+          "******"
+        end
+      %>
+    </p>
+    <p><%= post.text %></p>
+    <p><%= post.created_at %></p>
+  </div>
+<% end %>

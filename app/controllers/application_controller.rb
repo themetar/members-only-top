@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
   def current_user=(user)
     @current_user = user
   end
+
+  def check_signed_in
+    if current_user.nil?
+      flash[:danger] = "Please sign in"
+      redirect_to login_url
+    end 
+  end
 end
