@@ -1,10 +1,15 @@
-<header>
-  <ul>
-    <% if @current_user.nil? %>
-      <li><%= link_to "Sign in", login_path %></li>
-    <% elsif %>
-      <li><%= link_to "Create post", new_post_path %></li>
-      <li><%= link_to "Sign out", login_path, method: :delete %></li>
-    <% end %>
-  </ul>
+<header class="navbar navbar-top">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if @current_user.nil? %>
+          <li><%= link_to "Sign in", login_path %></li>
+        <% elsif %>
+          <li class="navbar-text"><%= @current_user.name %></li>
+          <li><%= link_to "Create post", new_post_path %></li>
+          <li><%= link_to "Sign out", login_path, method: :delete %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
 </header>

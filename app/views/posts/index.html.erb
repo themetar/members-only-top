@@ -1,17 +1,21 @@
-<h1>Posts#index</h1>
-<% @posts.each do |post| %>
-  <div class="">
-    <p>
-      <%=
-        unless @current_user.nil?
-           User.find_by(id: post.author_id).name
-        else
-          "******"
-        end
-      %>
-    </p>
-    <p><%= post.text %></p>
-    <p><%= post.created_at %></p>
-  </div>
-<% end %>
-<%= will_paginate %>
+<h1>All Posts</h1>
+<div class="content">
+  <% @posts.each do |post| %>
+    <article class="panel panel-default">
+      <div class="panel-body">
+        <p class="author">
+          <%=
+            unless @current_user.nil?
+               User.find_by(id: post.author_id).name
+            else
+              "******"
+            end
+          %>
+        </p>
+        <p class="text"><%= post.text %></p>
+        <p class="timestamp"><%= post.created_at %></p>
+      </div>
+    </article>
+  <% end %>
+  <%= will_paginate %>
+</div>

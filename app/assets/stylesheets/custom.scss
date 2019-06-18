@@ -1,2 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  max-width: 1200px;
+  margin: 5px auto;
+}
+
+.author {
+  color: #444;
+  font-weight: bold;
+}
+
+.text {
+  text-align: justify;
+}
+
+.timestamp {
+  color: #999;
+  text-align: right;
+}
